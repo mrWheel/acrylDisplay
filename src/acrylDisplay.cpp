@@ -1,3 +1,8 @@
+/*
+**  software by Michael Teeuw
+*/
+
+#define SW_VERSION "1.0.0 [10-08-2023]"
 
 #include <NeoPixelBus.h>
 #include <NeoPixelAnimator.h>
