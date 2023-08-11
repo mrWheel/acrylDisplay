@@ -13,7 +13,7 @@ const uint16_t pixelCount = 100;
 //-- make sure to set pixelPin to the correct pin
 const uint8_t  pixelPin   = 2;    
 
-elapsedMillis updateTimer;
+elapsedMillis updateTimer, blinkLedTimer;
 
 NeoPixelBus<NeoGrbwFeature, Neo800KbpsMethod> strip(pixelCount, pixelPin);
 
@@ -59,6 +59,8 @@ void updateColor()
 //=======================================================================
 void setup()
 {
+  pinMode(LED_BUILTIN, OUTPUT);
+
   strip.Begin();
   strip.Show();    
 
@@ -72,6 +74,11 @@ void loop()
   {
     updateColor();
     updateTimer = 0;
+  }
+  if (blinkLedTimer > 1500) 
+  {
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    blinkLedTimer = 0;
   }
 
 } //  loop()
