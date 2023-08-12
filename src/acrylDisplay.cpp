@@ -2,14 +2,14 @@
 **  software by Michael Teeuw
 */
 
-#define SW_VERSION "1.0.0 [10-08-2023]"
+#define SW_VERSION "1.1.0 [12-08-2023]"
 
 #include <NeoPixelBus.h>
 #include <NeoPixelAnimator.h>
 #include <elapsedMillis.h>
 
 //-- make sure to set pixelCount to the number of pixels in your strip
-const uint16_t pixelCount = 100;  
+const uint16_t pixelCount = 27;  
 //-- make sure to set pixelPin to the correct pin
 const uint8_t  pixelPin   = 2;    
 
@@ -18,8 +18,8 @@ elapsedMillis updateTimer, blinkLedTimer;
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(pixelCount, pixelPin);
 
 uint8_t   wheel         = 0;
-uint8_t   offsetPerLed  = 5;
-uint16_t  speed         = 75;
+uint8_t   offsetPerLed  = 4;
+uint16_t  speed         = 60;
 
 
 //-----------------------------------------------------------------------
