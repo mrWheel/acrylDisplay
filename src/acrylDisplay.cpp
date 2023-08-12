@@ -15,7 +15,7 @@ const uint8_t  pixelPin   = 2;
 
 elapsedMillis updateTimer, blinkLedTimer;
 
-NeoPixelBus<NeoGrbwFeature, Neo800KbpsMethod> strip(pixelCount, pixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(pixelCount, pixelPin);
 
 uint8_t   wheel         = 0;
 uint8_t   offsetPerLed  = 5;
@@ -23,22 +23,22 @@ uint16_t  speed         = 75;
 
 
 //-----------------------------------------------------------------------
-RgbwColor generateColor(uint8_t wheelPos) 
+RgbColor generateColor(uint8_t wheelPos) 
 {
   wheelPos = 255 - wheelPos;
   if(wheelPos < 85) 
   {
-    return RgbwColor(255 - wheelPos * 3, 0, wheelPos * 3, 0);
+    return RgbColor(255 - wheelPos * 3, 0, wheelPos * 3);
   } 
   else if(wheelPos < 170) 
   {
     wheelPos -= 85;
-    return RgbwColor(0, wheelPos * 3, 255 - wheelPos * 3, 0);
+    return RgbColor(0, wheelPos * 3, 255 - wheelPos * 3);
   } 
   else 
   {
     wheelPos -= 170;
-    return RgbwColor(wheelPos * 3, 255 - wheelPos * 3, 0, 0);
+    return RgbColor(wheelPos * 3, 255 - wheelPos * 3, 0);
   }
 
 } //  generateColor()
